@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/zvc-bs.css" />
+    <link rel="stylesheet" href="./css/zvc-demo.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/3b759e65de.js"></script>
+    <script src="./zvc/zvc.js"></script>
+    <script src="./zvc/zvc-bootstrap-table.js"></script>
+    <script src="./zvc/zvc-bootstrap-repeater.js"></script>
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async (_) => {
+        ZVC.options.debug.events = false;
+        let root = await ZVC.fromElement("main");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main" data-z-component="./Main"></div>
+  </body>
+</html>
