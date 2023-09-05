@@ -5,7 +5,7 @@ class Main extends ZCustomController {
         this.loadItem(e.state.target, e.state.title, false);
       }
     };
-    this.loadItem("./content/Load", "Home");
+    this.loadItem("./content/Input", "Home");
   }
   onSideBar_openItem(target, title) {
     this.loadItem(target, title);
