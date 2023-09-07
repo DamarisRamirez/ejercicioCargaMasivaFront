@@ -1,24 +1,47 @@
 <div class="container">
   <div class="border rounded shadow p-2">
     <nav class="navbar navbar-light bg-light rounded">
-      <a class="navbar-brand">Primeros 10 usuarios del archivo</a>
+      <a class="navbar-brand">Usuarios guardados</a>
+      <div
+        id="textSearch"
+        data-z-component="../common/TextSearch"
+        style="max-width: 160px"
+      ></div>
     </nav>
-    <table id="prevList" class="mt-2 w-100 table table-sm">
-      <thead>
-        <th data-z-field="mail">Correo</th>
-        <th data-z-field="name">Nombre</th>
-        <th data-z-field="gender">Genero</th>
-        <th data-z-field="birth">Fecha Nacimiento</th>
-        <th data-z-field="position">Cargo</th>
-        <th data-z-field="admission">Fecha Ingreso</th>
-        <th data-z-field="area">Área</th>
-        <th data-z-field="subarea">Subárea</th>
-        <th data-z-field="criticality">Criticidad</th>
-        <th data-z-field="monitor">Monitor</th>
-        <th data-z-field="admin">Administrador</th>
-        <th data-z-field="adminGlobal">Admin Global</th>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <div class="table-responsive">
+      <table
+        id="usersList"
+        class="mt-2 w-100 table table-sm table-auto"
+        data-z-pagination="#paginator"
+        data-z-rows-info="#rowsDetail"
+      >
+        <thead>
+          <th data-z-field="correo">Correo</th>
+          <th data-z-field="nombre">Nombre</th>
+          <th data-z-field="genero">Genero</th>
+          <th data-z-field="fecha_nacimiento">Fecha Nacimiento</th>
+          <th data-z-field="cargo">Cargo</th>
+          <th data-z-field="fecha_ingreso">Fecha Ingreso</th>
+          <th data-z-field="area_id">Área</th>
+          <th data-z-field="subarea_id">Subárea</th>
+          <th data-z-field="criticidad">Criticidad</th>
+          <th data-z-field="monitor">Monitor</th>
+          <th data-z-field="administrador">Administrador</th>
+          <th data-z-field="adminglobal">Admin Global</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="border-top pt-2 pb-1">
+      <div id="rowsDetail" class="text-center text-muted"></div>
+      <div
+        id="paginator"
+        class="pagination pagination-sm float-right"
+        style="margin-top: -26px"
+        data-z-pagination="local"
+        data-z-n-rows-per-page="10"
+        data-z-n-pages="5"
+      ></div>
+    </div>
   </div>
 </div>
