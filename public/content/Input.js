@@ -6,8 +6,6 @@ class Input extends ZCustomController {
   async onExcelInput_change() {
     const contentExcel = await readXlsxFile(excelInput.files[0]);
     objectsExcel.push(contentExcel);
-    console.log("content", contentExcel);
-    console.log("objects", objectsExcel);
   }
 
   async onPostBtn_click() {
@@ -44,8 +42,6 @@ class Input extends ZCustomController {
       },
       body: JSON.stringify(formattedObjects),
     });
-
-    const response = await post.json();
   }
 }
 ZVC.export(Input);
