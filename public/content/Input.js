@@ -44,6 +44,8 @@ class Input extends ZCustomController {
       },
       body: JSON.stringify(formattedObjects),
     });
+
+    const response = await post.json();
   }
 }
 ZVC.export(Input);
