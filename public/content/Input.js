@@ -35,13 +35,40 @@ class Input extends ZCustomController {
       };
     });
 
-    const post = await fetch("http://localhost:4000/inputUsers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formattedObjects),
-    });
+    try {
+      const post = await fetch("http://localhost:4000/inputUsers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formattedObjects),
+      });
+
+      if (post.ok) {
+        Swal.fire({
+          title: "Listo!",
+          text: "Se han cargado los usuarios",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+        return;
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "Hubo un problema con los registros",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error!",
+        text: "Hubo un error al procesar la solicitud",
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      });
+    }
   }
 }
 ZVC.export(Input);

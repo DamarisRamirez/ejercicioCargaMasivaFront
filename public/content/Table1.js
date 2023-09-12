@@ -1,7 +1,6 @@
 class Table1 extends ZCustomController {
   async onThis_init() {
     this.users = await this.getUsers();
-    console.log("users", this.users);
   }
 
   async getUsers() {
@@ -19,7 +18,6 @@ class Table1 extends ZCustomController {
 
   onUsersList_getRows() {
     let filter = this.textSearch.value;
-    console.log("userList", this.users);
     return this.users
       .filter((user) => user.nombre.includes(filter))
       .map((row) => this.prepareRow(row));
