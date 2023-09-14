@@ -8,14 +8,6 @@ class Delete extends ZCustomController {
   }
 
   async onDeleteBtn_click() {
-    const formatedUsers = usersExcel[0].slice(1).map((row) => {
-      return {
-        correo: row[0],
-      };
-    });
-
-    console.log(formatedUsers);
-
     if (!usersExcel[0]) {
       Swal.fire({
         title: "Error!",
@@ -25,6 +17,14 @@ class Delete extends ZCustomController {
       });
       return;
     } else {
+      const formatedUsers = usersExcel[0].slice(1).map((row) => {
+        return {
+          correo: row[0],
+        };
+      });
+
+      console.log(formatedUsers);
+
       Swal.fire({
         title: "¿Está seguro?",
         text: "Eliminará de manera permanente estos usuarios",
@@ -43,15 +43,18 @@ class Delete extends ZCustomController {
               },
               body: JSON.stringify(formatedUsers),
             });
-
-            Swal.fire("¡Listo!", "Se han borrado los registros.", "success");
+            if (dlt.ok) {
+              Swal.fire("¡Listo!", "Se han borrado los registros.", "success");
+            } else {
+              Swal.fire(
+                "Error",
+                "No se han podido eliminar los registros",
+                "error"
+              );
+            }
           } catch {
             console.error("Error al eliminar usuarios:", error);
-            Swal.fire(
-              "Error",
-              "Ha ocurrido un error al eliminar los registros.",
-              "error"
-            );
+            Swal.fire("Error", "Ha ocurrido un error interno.", "error");
           }
         }
       });

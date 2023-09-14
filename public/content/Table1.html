@@ -16,6 +16,15 @@
         data-z-rows-info="#rowsDetail"
       >
         <thead>
+          <th
+            data-z-field="iconActive"
+            data-z-clickable="true"
+            data-z-cell-class="text-center"
+            class="text-center"
+            style="width: 60px"
+          >
+            Eliminar
+          </th>
           <th data-z-field="correo">Correo</th>
           <th data-z-field="nombre">Nombre</th>
           <th data-z-field="genero">Genero</th>
@@ -31,6 +40,7 @@
         </thead>
         <tbody></tbody>
       </table>
+      <button id="deleteBtn" class="btn btn-danger">Eliminar</button>
     </div>
     <div class="border-top pt-2 pb-1">
       <div id="rowsDetail" class="text-center text-muted"></div>
