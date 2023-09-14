@@ -47,7 +47,7 @@ class Input extends ZCustomController {
       if (post.ok) {
         Swal.fire({
           title: "Listo!",
-          text: "Se han cargado los usuarios",
+          text: "Se ha actualizado el registro de usuarios",
           icon: "success",
           confirmButtonText: "Aceptar",
         });

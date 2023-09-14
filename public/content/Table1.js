@@ -1,11 +1,13 @@
 class Table1 extends ZCustomController {
   async onThis_init() {
     this.users = await this.getUsers();
+    console.log("Users ", this.users);
   }
 
   async getUsers() {
     const res = await fetch("http://localhost:4000/usersTable");
     const resJson = await res.json();
+    console.log("resJson", resJson);
     return resJson;
   }
 
